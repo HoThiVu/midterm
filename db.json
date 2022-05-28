@@ -1,0 +1,43 @@
+{
+    "posts": [{
+        "id": 1,
+        "title": "json-server",
+        "author": "typicode"
+    }],
+    "comments": [{
+        "id": 1,
+        "body": "some comment",
+        "postId": 1
+    }],
+    "profile": {
+        "name": "typicode"
+    },
+
+    "products": [{
+            "id": 1,
+            "name": "Bánh kem 1",
+            "price": 10000,
+            "quantity": 10,
+            "oldPrice": 20000,
+            "image": "images/hinh1.png"
+        },
+        {
+            "id": 2,
+            "name": "Bánh kem 12",
+            "price": 10000,
+            "quantity": 10,
+            "oldPrice": 20000,
+            "image": "images/hinh1.png"
+        },
+        {
+            "id": 3,
+            "name": "Bánh kem 2",
+            "price": 10000,
+            "quantity": 10,
+            "oldPrice": 20000,
+            "image": "images/hinh1.png"
+        }
+    ]
+   
+    
+}

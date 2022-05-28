@@ -1,0 +1,12 @@
+.col-4{
+
+    margin-right: 10%;
+    margin-bottom: 5%;
+}
+.row{
+    display: flex;
+    justify-content: center;
+}
+.btn-primary{
+    margin-right: 5%;
+}
