@@ -14,6 +14,7 @@ class Admin extends Component {
         ngay : '',
         image : '',
         new: "",
+        show:'list',
       
       }
       this.onDelete = this.onDelete.bind(this);
@@ -37,7 +38,9 @@ class Admin extends Component {
             id: data.id,
             name : data.name,
             ngay : data.ngay,
-            image : data.image
+            image : data.image,
+        show:'list',
+
           });
         }).catch( err =>{
       });
@@ -79,6 +82,8 @@ class Admin extends Component {
         name: thegioi1.name,
         ngay: thegioi1.ngay,     
         image : thegioi1.image,
+        show:'list',
+
        
       });
       document.getElementById('image-edit').style.display = 'block';
@@ -103,7 +108,9 @@ class Admin extends Component {
               name: this.state.name,
               ngay: this.state.ngay,           
               image : this.state.image,
-              new:this.state.new
+              new:this.state.new,
+        show:'list',
+
             }
     
           }).then(res => {
@@ -121,7 +128,9 @@ class Admin extends Component {
             name: this.state.name,
             ngay: this.state.ngay,           
             image : this.state.image,   
-            new: this.state.new        
+            new: this.state.new  ,
+        show:'list',
+
           }
   
         }).then(res => {
@@ -134,7 +143,8 @@ class Admin extends Component {
         name:'',   
         ngay : '',
         image : '',
-        new:''
+        show:'list',
+        new:'',
       });
     }
    onDelete = (id) =>{
@@ -159,6 +169,39 @@ class Admin extends Component {
                 
               }
           });
+    }
+   renderInside = (neww,string)=>{
+      let  tintuc = neww.filter(item => item.new === string).map(filterNew=>(
+          <div className="card col-4" style={{ width: "18rem" }}>
+          <img className="card-img-top" src={"./"+ filterNew.image} alt="Card image cap" />
+          <div className="card-body">
+             <h5 className="card-title">{filterNew.name}</h5>
+             <div className="row">
+                <div className="">
+                   <strong>
+                   {
+                   filterNew.ngay
+                   }
+                     </strong>
+                </div>
+                {/* <div className="col-6">
+                  <del>
+                  {
+                   thegioi.oldngay
+                   }
+                  </del>
+                  
+                </div> */}
+             </div>
+             <button className="btn btn-primary" onClick={() =>this.showEditthegioi1(filterNew.id)}>Edit
+             </button>  
+             
+             <button className="btn btn-danger" onClick={() =>this.onDelete(filterNew.id)}>Delete
+             </button>
+          </div>
+       </div>
+        ))
+        return tintuc
     }
   render() {
     return (
@@ -239,50 +282,18 @@ class Admin extends Component {
          </div>
     <h1>TRONG NUOC</h1>
    <div className="row">
-   {renderInside(this.state.thegioi,'Trong nước')}
+   {this.renderInside(this.state.thegioi,'Trong nước')}
    </div>
     <h1>NGOAI NUOC</h1>
     <div className="row">
-    {renderInside(this.state.thegioi,"Thế giới")}
+    {this.renderInside(this.state.thegioi,"Thế giới")}
    </div>
   </div>
 )}
+
+
 };
 
-const renderInside = (neww,string)=>{
-    let  tintuc = neww.filter(item => item.new === string).map(filterNew=>(
-        <div className="card col-4" style={{ width: "18rem" }}>
-        <img className="card-img-top" src={"./"+ filterNew.image} alt="Card image cap" />
-        <div className="card-body">
-           <h5 className="card-title">{filterNew.name}</h5>
-           <div className="row">
-              <div className="">
-                 <strong>
-                 {
-                 filterNew.ngay
-                 }
-                   </strong>
-              </div>
-              {/* <div className="col-6">
-                <del>
-                {
-                 thegioi1.oldngay
-                 }
-                </del>
-                
-              </div> */}
-           </div>
-           <button className="btn btn-primary" onClick={() =>this.showEditthegioi1(filterNew.id)}>
-           Edit
-           </button>
-           <button className="btn btn-danger" onClick={() =>this.onDelete(filterNew.id)}>
-           delete
-           </button>
-        </div>
-     </div>
-      ))
-      return tintuc
-}
 
 
 export default Admin;

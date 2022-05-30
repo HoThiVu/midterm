@@ -6,7 +6,7 @@ class F extends Component {
       super(props);
       this.state={
         thegioi: [],
-        id: '',
+        id:'',
         name : '',
         ngay : '',
         image : '',
@@ -29,7 +29,6 @@ class F extends Component {
         var data = res.data;
           this.setState({
         new: "",
-
             id: data.id,
             name : data.name,
             ngay : data.ngay,
@@ -55,8 +54,7 @@ class F extends Component {
     showEditProduct = (id) => {
       var thegioi1 = this.getProduct(id);
       this.setState({
-        new: thegioi1.new,
-   
+        new: thegioi1.new,   
         id: thegioi1.id,
         name: thegioi1.name,
         ngay: thegioi1.ngay,     
@@ -74,62 +72,87 @@ class F extends Component {
       }
       return -1;
     }
-  
+    RenderTrangchu = (home,string,status)=>{
+      let main, arr=[];
+       home.filter(item => item.new === string).map((filterHome,i)=>{
+
+        if (filterHome.show == "main"){
+          {console.log(555);}
+          main = <div className='f-grid-col'  >
+          <img className='Image' src={"./"+ filterHome.image}></img>
+          <h4>{filterHome.name}</h4>
+          <p>{filterHome.ngay}</p>
+       </div>
+        }    
+        else{
+          arr[i] =  
+          <div className='content'>
+             <div>
+                <img className='Image-img' src={"./"+filterHome.image}></img>
+             </div>
+             <div id='Title'>
+                <h4>{filterHome.name}</h4>
+                <p>{filterHome.ngay}</p>
+             </div>
+             
+          </div>
+         
+        }      
+      })
+      if (status ){
+        return main
+      }     
+      else{
+        return arr
+      }
+     
+    } 
   render() {
     return (
       <>
-       <h1>TRONG NUOC</h1>
-   <div className="row">
-   {RenderTrangchu(this.state.thegioi,'Trong nước')}
+       <h1>Tin Tức Trong Nước</h1>
+  
+   <div className='f-grid'>
+      {this.RenderTrangchu(this.state.thegioi,"Trong nước",true)}
+      {/* <h1>gggg </h1> */}
+      <div className='f-grid-col'>
+      {this.RenderTrangchu(this.state.thegioi,"Trong nước",false)}
+      </div>
+  
+   {/* {RenderTrangchutrongnnuoc(this.state.thegioi,'Trong nước')} */}
+
    </div>
-    <h1>NGOAI NUOC</h1>
-    <div className="row">
-    {RenderTrangchu(this.state.thegioi,"Thế giới")}
-   </div>
+    <h1>Tin Tức Ngoài Nước</h1>
+  
+      <div className='f-grid'>
+      {this.RenderTrangchu(this.state.thegioi,"Thế giới",true)}
+      <div className='f-grid-col'>
+      {this.RenderTrangchu(this.state.thegioi,"Thế giới",false)}
+      </div>
+     
+      </div>
+   
+ 
       </>
     
 )}
 }
-const RenderTrangchu = (home,string)=>{
-  let  Trangchu = home.filter(item => item.new === string).map(filterHome=>(
-    <div class="f-grid">         
-          <div class="f-grid-col">
-             <img className='Image' src={"./"+ filterHome.image}></img>
-             <p>{filterHome.name}</p>
-             <p>{filterHome.ngay}</p>
-          </div>
-          <div class="f-grid-col">
-             <div className='content'>
-                <div>
-                   <img className='Image-img' src={"./"+filterHome.image}></img>
-                </div>
-                <div id='Title'>
-                   <p>{filterHome.name}</p>
-                   <p>{filterHome.ngay}</p>
-                </div>
-             </div>
-             <div className='content'>
-                <div>
-                   <img className='Image-img' src={"./"+filterHome.image}></img>
-                </div>
-                <div id='Title'>
-                   <p>{filterHome.name}</p>
-                   <p>{filterHome.ngay}</p>
-                </div>
-             </div>
-             <div className='content'>
-                <div>
-                   <img className='Image-img' src={"./"+filterHome.image}></img>
-                </div>
-                <div id='Title'>
-                   <p>{filterHome.name}</p>
-                   <p>{filterHome.ngay}</p>
-                </div>
-             </div>
-          </div>
-       </div>
-  ))
-return Trangchu;
-} 
+
+
+// const RenderTrangchutrongnnuoc = (home,string)=>{
+//   let Tinnhotrongnuoc =home.filter(item => item.new ===string).map(filtertinnhotrongnuoc =>(
+//     <div className='content'>
+//                 <div>
+//                    <img className='Image-img' src={"./"+filtertinnhotrongnuoc.image} alt=" #"></img>
+//                 </div>
+//                 <div id='Title'>
+//                    <h2>{filtertinnhotrongnuoc.name}</h2>
+//                    <p>{filtertinnhotrongnuoc.ngay}</p>
+//                 </div>
+//              </div>
+//   ))
+//   return Tinnhotrongnuoc;
+// }
+
 
 export default F;

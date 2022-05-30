@@ -1,17 +1,8 @@
-import React from 'react';
-// import appStyle from './aset/appStyle.css';
-import { Link, Route } from 'react-router-dom';
-import { Routes } from 'react-router-dom';
-import routes from './routes';
-
-function App(props) {
-  const link = routes.map(item=><li><Link to={item.path}>{item.name}</Link></li>)
-  const router = routes.map(item=><Route path={item.path}  element={item.component}></Route>)
-  // const link = routes.map(item=> <li>{item.name}</li>)
-  return (
-    <>
-  <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div className="container-fluid">
+<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+<div className="container-fluid">
+  {/* <Link to={"/"} className="navbar-brand" href="#">
+    HOME
+  </Link> */}
   <button
     className="navbar-toggler"
     type="button"
@@ -24,10 +15,30 @@ function App(props) {
     <span className="navbar-toggler-icon" />
   </button>
   <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul className="navbar-nav me-auto mb-2 mb-lg-0">      
+    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+      <li className="nav-item">
+        <Link
+          to={"/Admin"}
+          className="nav-link active"
+          aria-current="page"
+          href="#"
+        >
+          ADMIN
+        </Link>
+      </li>
       <li className="nav-item">
         <a className="nav-link" href="#">
-        {link}
+          ABOUT
+        </a>
+      </li>
+      <li className="nav-item">
+        <a
+          className="nav-link disabled"
+          href="#"
+          tabIndex={-1}
+          aria-disabled="true"
+        >
+          CONTACT
         </a>
       </li>
     </ul>
@@ -46,12 +57,3 @@ function App(props) {
 </div>
 </nav>
 
-
-  <Routes>
-      {router}
-  </Routes>
-    </>
-  );
-}
-
-export default App;

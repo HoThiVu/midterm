@@ -1,0 +1,37 @@
+[
+    {
+     "id": 1,
+     "name": "Tin tuc moi nhat hien nay",
+     "ngay": "10/5/2022",
+     "image": "images/hinh1.png",
+     "new": "Thế giới",
+     "show": "main"
+   
+    },
+    {
+     "id": 2,
+     "name": "Giao duc gioi tre hien nay",
+     "ngay": "16/5/2022",
+     "image": "images/hinh1.png",
+     "new": "Trong nước",
+     "show": "main",
+     "bigTrongnuoc": "Tin tức mới trong nước"
+    },
+    {
+     "id": "3",
+     "name": " hồ thị vư",
+     "ngay": "1212-06-02",
+     "image": "images/slide1.png",
+     "show": "list",
+     "new": "Thế giới"
+    },
+    {
+     "id": "4",
+     "name": " Hồ Thị Vư",
+     "ngay": "2001-02-01",
+     "image": "images/hinh1.png",
+     "new": "Trong nước",
+     "smallThegioi": "Tin nhỏ trong nước", 
+      "show": "list"
+    }
+   ]
