@@ -1,11 +1,11 @@
-.container{
+ /* .container{
     padding: 0%;
   
 }
 
 .f-grid {
     display: flex;
-    /* justify-content: center; */
+   
     align-items: center;
     flex-flow: row wrap;
     margin-left: 10%;
@@ -24,9 +24,10 @@ margin-bottom: 30px;
 }
 .f-grid-col {
     flex: 1 0;
-    margin-left: 1rem;
+ 
     margin-bottom: 1rem;
     padding: 1rem;
+  
 }
 .Image{
     width: 600px;
@@ -36,15 +37,22 @@ margin-bottom: 30px;
     width: 200px;
     height: 100px;
 }
+*/
 #category-id{
-width: 50%;
-/* text-align: center; */
-padding-right: 10%;
-/* margin-left: 30%; */
-padding-top: 3%;
-}
-#category-name{
-    margin-right: 30%;
-}
-
-  
+    width: 60%;
+    
+    padding-right: 10%;
+    margin-left: 30%;
+    padding-top: 3%;
+    }
+    #category-name{
+        margin-right: 30%;
+    }
+     
+    
+    .col-4{
+        margin-right: 10px;
+    }
+    .btn-primary{
+        margin-right: 10px;
+    }

@@ -1,9 +1,8 @@
-import PagesKiemtraAdmin from "./../aset/PagesKiemtraAdmin.css"
+// import PagesKiemtraAdmin from "./../aset/PagesKiemtraAdmin.css"
 import React, { Component } from 'react';
 import axios from 'axios';
 import {toast} from 'react-toastify';
-import { Redirect } from "react-router/cjs/react-router.min";
-
+// import { Redirect } from "react-router/cjs/react-router.min";
 class Admin extends Component {
    constructor(props) {
       super(props);
@@ -34,7 +33,6 @@ class Admin extends Component {
         var data = res.data;
           this.setState({
         new: "",
-
             id: data.id,
             name : data.name,
             ngay : data.ngay,
@@ -76,15 +74,12 @@ class Admin extends Component {
     showEditthegioi1 = (id) => {
       var thegioi1 = this.getthegioi1(id);
       this.setState({
-        new: thegioi1.new,
-   
+        new: thegioi1.new,   
         id: thegioi1.id,
         name: thegioi1.name,
         ngay: thegioi1.ngay,     
         image : thegioi1.image,
-        show:'list',
-
-       
+        show:'list',       
       });
       document.getElementById('image-edit').style.display = 'block';
       alert(id);
@@ -184,14 +179,6 @@ class Admin extends Component {
                    }
                      </strong>
                 </div>
-                {/* <div className="col-6">
-                  <del>
-                  {
-                   thegioi.oldngay
-                   }
-                  </del>
-                  
-                </div> */}
              </div>
              <button className="btn btn-primary" onClick={() =>this.showEditthegioi1(filterNew.id)}>Edit
              </button>  
@@ -220,12 +207,7 @@ class Admin extends Component {
                     aria-describedby="emailHelp"
                     placeholder="Enter name"
                     >
-                      {/* <option 
-                         value="Thế giới" 
-                      className="form-control" 
-                      type="option">
-                      Chọn thể loại
-                      </option> */}
+                
                       <option 
                        value="Thế giới"
                       className="form-control" 
@@ -280,11 +262,11 @@ class Admin extends Component {
             </button>         
                </form>
          </div>
-    <h1>TRONG NUOC</h1>
+    <h1>Tin Trong Nước</h1>
    <div className="row">
    {this.renderInside(this.state.thegioi,'Trong nước')}
    </div>
-    <h1>NGOAI NUOC</h1>
+    <h1>Tin Thế giới</h1>
     <div className="row">
     {this.renderInside(this.state.thegioi,"Thế giới")}
    </div>

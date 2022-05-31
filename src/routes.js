@@ -1,13 +1,13 @@
 
 import React from 'react';
 import Admin from './component/Admin';
-import F from './component/F';
+import News from './component/News';
 
 const routes = [
     {
         path:"/",
-        name:"TRANG CHU",
-        component:<F></F>
+        name:"NEWs",
+        component:<News></News>
     },
     {
         path:"/Admin",

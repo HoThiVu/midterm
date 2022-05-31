@@ -2,56 +2,30 @@ import React from 'react';
 // import appStyle from './aset/appStyle.css';
 import { Link, Route } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
+import Add from './component/Add';
+import Admin from './component/Admin';
+import Headerr from './component/Headerr';
 import routes from './routes';
 
 function App(props) {
-  const link = routes.map(item=><li><Link to={item.path}>{item.name}</Link></li>)
-  const router = routes.map(item=><Route path={item.path}  element={item.component}></Route>)
-  // const link = routes.map(item=> <li>{item.name}</li>)
-  return (
-    <>
-  <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div className="container-fluid">
-  <button
-    className="navbar-toggler"
-    type="button"
-    data-bs-toggle="collapse"
-    data-bs-target="#navbarTogglerDemo02"
-    aria-controls="navbarTogglerDemo02"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span className="navbar-toggler-icon" />
-  </button>
-  <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul className="navbar-nav me-auto mb-2 mb-lg-0">      
-      <li className="nav-item">
-        <a className="nav-link" href="#">
-        {link}
-        </a>
-      </li>
-    </ul>
-    <form className="d-flex">
-      <input
-        className="form-control me-2"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-      />
-      <button className="btn btn-outline-success" type="submit">
-        Search
-      </button>
-    </form>
-  </div>
-</div>
-</nav>
-
-
+//   
+return(
+  <>
+  <Headerr></Headerr>
   <Routes>
-      {router}
-  </Routes>
-    </>
-  );
+  <Route path ='/' element={ <Add></Add>}>
+ 
+  </Route>
+  <Route path='/Admin' element={<Admin></Admin> }>
+
+  </Route>
+</Routes>
+  {/* <Add>
+
+  </Add> */}
+
+  </>
+)
 }
 
 export default App;
